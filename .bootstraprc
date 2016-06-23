@@ -1,0 +1,20 @@
+---
+bootstrapVersion: 3
+
+styleLoaders:
+    - style
+    - css?sourceMap
+    - postcss
+    - sass?sourceMap&output=expanded&precision=8
+
+styles:
+    # Always needs to be included
+    mixins: true
+
+    # Utilities
+    utilities: true
+
+    # Selected stylesheets
+    buttons: true
+
+scripts: false
