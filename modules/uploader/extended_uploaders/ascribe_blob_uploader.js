@@ -50,8 +50,8 @@ const AscribeBlobUploader = (Uploader, request) => {
                     ...createBlobParams.body
                 })
             })
-            .then(onCreateBlobSuccess)
-            .catch(onCreateBlobError);
+            .then((res) => onCreateBlobSuccess(res, file))
+            .catch((err) => onCreateBlobError(err, file));
         },
 
         render() {
