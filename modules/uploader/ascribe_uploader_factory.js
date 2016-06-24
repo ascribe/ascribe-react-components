@@ -16,7 +16,7 @@ import AscribeRequestKeyUploader from './extended_uploaders/ascribe_request_key_
 const { func, object } = React.PropTypes;
 
 
-const AscribeUploader = ({
+const AscribeUploaderFactory = ({
     createCsrfHeader,
     request,
     Urls,
@@ -140,10 +140,12 @@ const AscribeUploader = ({
 };
 
 // Also export version with file hashing
-const AscribeFileHashUploader = (...args) => FileHashUploader(AscribeUploader(...args));
+const AscribeFileHashUploaderFactory = (...args) => (
+    FileHashUploader(AscribeFileHashUploaderFactory(...args))
+);
 
-export default AscribeUploader;
+export default AscribeUploaderFactory;
 export {
-    AscribeUploader,
-    AscribeFileHashUploader
+    AscribeUploaderFactory,
+    AscribeFileHashUploaderFactory
 };
