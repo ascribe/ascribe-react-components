@@ -117,6 +117,8 @@ const config = {
 
     devtool: PRODUCTION ? '#source-map' : '#inline-source-map',
 
+    target: 'web',
+
     resolve: {
         // Dedupe any dependencies' polyfill, react, or react-css-modules dependencies when
         // developing with npm link
