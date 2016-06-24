@@ -4,6 +4,7 @@ import { deepMatchObject, safeInvoke } from 'js-utility-belt/es6';
 
 import CustomHeaderOnChangeUploader from 'react-utility-belt/es6/uploader/extended_uploaders/custom_header_on_change_uploader';
 import CustomValidationUploader from 'react-utility-belt/es6/uploader/extended_uploaders/custom_validation_uploader';
+import FileHashUploader from 'react-utility-belt/es6/uploader/extended_uploaders/file_hash_uploader';
 import ReactS3FineUploader from 'react-utility-belt/es6/uploader/react_s3_fine_uploader';
 import UploaderSupportedFeatures from 'react-utility-belt/es6/uploader/constants/supported_features';
 import uploaderSpecExtender from 'react-utility-belt/es6/uploader/utils/uploader_spec_extender';
@@ -138,4 +139,11 @@ const AscribeUploader = ({
     }));
 };
 
+// Also export version with file hashing
+const AscribeFileHashUploader = (...args) => FileHashUploader(AscribeUploader(...args));
+
 export default AscribeUploader;
+export {
+    AscribeUploader,
+    AscribeFileHashUploader
+};
