@@ -3,8 +3,10 @@ import React from 'react';
 import CreateBlobUploader from 'react-utility-belt/es6/uploader/extended_uploaders/create_blob_uploader';
 import uploaderSpecExtender from 'react-utility-belt/es6/uploader/utils/uploader_spec_extender';
 
+import { uploaderCreateBlobParamsShape } from '../../prop_types';
 
-const { func, object, shape, string } = React.PropTypes;
+
+const { func } = React.PropTypes;
 
 const AscribeBlobUploader = (Uploader, request) => {
     const BlobUploader = CreateBlobUploader(Uploader);
@@ -13,11 +15,7 @@ const AscribeBlobUploader = (Uploader, request) => {
         displayName: 'AscribeBlobUploader',
 
         propTypes: {
-            createBlobParams: shape({
-                body: object,
-                headers: object,
-                url: string.isRequired
-            }),
+            createBlobParams: uploaderCreateBlobParamsShape,
             onCreateBlobError: func,
             onCreateBlobSuccess: func
 

@@ -3,8 +3,10 @@ import React from 'react';
 import uploaderSpecExtender from 'react-utility-belt/es6/uploader/utils/uploader_spec_extender';
 import { safeInvoke } from 'js-utility-belt/es6';
 
+import { uploaderRequestKeyParamsShape } from '../../prop_types';
 
-const { func, object, shape, string } = React.PropTypes;
+
+const { func, object } = React.PropTypes;
 
 const AscribeRequestKeyUploader = (Uploader, request) => (
     React.createClass(uploaderSpecExtender({
@@ -15,11 +17,7 @@ const AscribeRequestKeyUploader = (Uploader, request) => (
             // Requires you to return key from response
             onRequestKeySuccess: func.isRequired,
 
-            requestKeyParams: shape({
-                body: object,
-                headers: object,
-                url: string.isRequired
-            }).isRequired,
+            requestKeyParams: uploaderRequestKeyParamsShape.isRequired,
 
             onRequestKeyError: func,
 

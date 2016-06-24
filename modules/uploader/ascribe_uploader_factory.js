@@ -12,8 +12,10 @@ import uploaderSpecExtender from 'react-utility-belt/es6/uploader/utils/uploader
 import AscribeBlobUploader from './extended_uploaders/ascribe_blob_uploader';
 import AscribeRequestKeyUploader from './extended_uploaders/ascribe_request_key_uploader';
 
+import { uploaderCreateBlobParamsShape, uploaderRequestKeyParamsShape } from '../prop_types';
 
-const { func, object } = React.PropTypes;
+
+const { func } = React.PropTypes;
 
 
 const AscribeUploaderFactory = ({
@@ -43,14 +45,14 @@ const AscribeUploaderFactory = ({
 
         propTypes: {
             // AscribeBlobUploader props
-            createBlobParams: object,
+            createBlobParams: uploaderCreateBlobParamsShape,
             onCreateBlobError: func,
             onCreateBlobSuccess: func,
 
             // AscribeRequestKeyUploader props
             // eslint-disable-next-line react/sort-prop-types
             onRequestKeySuccess: func.isRequired,
-            requestKeyParams: object.isRequired,
+            requestKeyParams: uploaderRequestKeyParamsShape.isRequired,
 
             onRequestKeyError: func,
 
