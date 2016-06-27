@@ -46,9 +46,9 @@ const AscribeRequestKeyUploader = (Uploader, request) => (
                     ...requestKeyParams.body
                 })
             })
-            .then(onRequestKeySuccess)
+            .then((res) => onRequestKeySuccess(res, file))
             .catch((err) => {
-                safeInvoke(onRequestKeyError, err);
+                safeInvoke(onRequestKeyError, err, file);
 
                 // Rethrow the error to tell FineUploader the key request failed
                 throw err;
