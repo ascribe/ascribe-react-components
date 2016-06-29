@@ -36,6 +36,7 @@ const AscribeUploaderFactory = ({
         AscribeRequestKeyUploader
     ];
     const EnhancedUploader = UploaderEnhancements.reduce(
+        // Add a request to each of the extended uploaders in case they need network access
         (Uploader, Enhancer) => Enhancer(Uploader, request),
         ReactS3FineUploader
     );
@@ -136,7 +137,7 @@ const AscribeUploaderFactory = ({
         },
 
         render() {
-            return (<EnhancedUploader {...this.props} />);
+            return (<EnhancedUploader ref="uploader" {...this.props} />);
         }
     }));
 };
