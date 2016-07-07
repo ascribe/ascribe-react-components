@@ -43,7 +43,7 @@ const CollapsibleLayout = CssModules(({
 ), styles);
 
 const CollapsiblePanel = CssModules(({ children, expanded, ...props }) => (
-    <div {...props} className={classNames({ 'hide': !expanded })} styleName="collapsible-body">
+    <div {...props} className={classNames({ 'hidden': !expanded })} styleName="collapsible-body">
         {children}
     </div>
 ), styles);
@@ -193,7 +193,7 @@ const CollapsibleProperty = React.createClass(propertySpecExtender({
 
         // Don't show the children unless the property's expanded
         return this.state.expanded ? child : React.cloneElement(child, {
-            className: 'hide',
+            className: 'hidden',
             removeValue: removeValueWhenCollapsed
         });
     },
