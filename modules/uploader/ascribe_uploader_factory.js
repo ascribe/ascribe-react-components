@@ -108,6 +108,10 @@ const AscribeUploaderFactory = ({
                 session: {
                     endpoint: null
                 },
+                signature: {
+                    endpoint: Urls.S3_SIGNATURE,
+                    customHeaders: csrfHeader
+                },
                 uploadSuccess: {
                     params: {
                         isBrowserPreviewCapable: UploaderSupportedFeatures.imagePreviews
