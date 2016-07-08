@@ -34,7 +34,7 @@ const AscribeBlobUploader = (Uploader, request) => {
                     console.warn('createBlobParams was not defined for AscribeBlobUploader. ' +
                                  'Continuing without creating the blob on the server.');
                 }
-                return undefined;
+                return Promise.reject('skipped');
             }
 
             return request(createBlobParams.url, {
@@ -51,7 +51,7 @@ const AscribeBlobUploader = (Uploader, request) => {
                 })
             })
             // If these functions aren't available, CreateBlobUploader will handle them in its
-            // `catch` clause for this promise.
+            // `then` and `catch` clauses for this promise.
             .then((res) => onCreateBlobSuccess(res, file))
             .catch((err) => onCreateBlobError(err, file));
         },
